@@ -24,9 +24,9 @@ versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies."${mod_id}"]]
-modId = "id"
-mandatory = true
-versionRange = "[1.0.0,)"
-ordering = "AFTER"
-side = "BOTH"
+#[[dependencies."${mod_id}"]]
+#modId = "id"
+#mandatory = true
+#versionRange = "[1.0.0,)"
+#ordering = "AFTER"
+#side = "BOTH"
