@@ -25,6 +25,9 @@ apply plugin: 'maven-publish'
 
 mixin {
     add sourceSets.main, "farmersdelight.refmap.json"
+//    add sourceSets.main, "${mod_id}.refmap.json"
+
+    config "${mod_id}.mixins.json"
 }
 
 group = mod_group_id
@@ -69,15 +72,31 @@ minecraft {
     }
 }
 
-mixin {
-    add sourceSets.main, "${mod_id}.refmap.json"
-
-    config "${mod_id}.mixins.json"
-}
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    flatDir {
+        dir 'libs'
+    }
+    maven {
+        // Modrith
+        url = "https://api.modrinth.com/maven"
+    }
+    maven {
+        // CurseForge
+        url "https://cursemaven.com"
+        content { includeGroup "curse.maven" }
+    }
+    maven {
+        url = "https://maven.architectury.dev/"
+    }
+
+    maven {
+        // Create
+        name "createmod maven"
+        url "https://maven.createmod.net/"
+    }
     maven {
         // JEI
         name = "Progwml6 maven"
@@ -97,41 +116,20 @@ repositories {
         url "https://maven.tterrag.com/"
     }
     maven {
-        // Create
-        name "createmod maven"
-        url "https://maven.createmod.net/"
-    }
-    maven {
-        // CurseForge
-        url "https://cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
-    }
-    maven {
-        // Modrith
-        url = "https://api.modrinth.com/maven"
-    }
-    maven {
         // Terraform
         url "https://maven.terraformersmc.com/"
         name "TerraformersMC"
-    }
-    maven {
-        url = "https://maven.architectury.dev/"
-    }
-    maven {
-        // Curios
-        name = "Illusive Soulworks maven"
-        url = "https://maven.theillusivec4.top/"
     }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    implementation fg.deobf("curse.maven:dtn-palette-of-paws-1051461:6755311")
-    implementation fg.deobf("curse.maven:raxiores-of-raxiore-1231016:7409314")
+    // local files
+    implementation fg.deobf("block:ror:0.71")
+
+    implementation fg.deobf("maven.modrinth:dtn-palette-of-paws:1.3.0")
+    implementation fg.deobf("maven.modrinth:ecological-replenishment-station:1.2.0")
 
     // library mods and deps
     implementation fg.deobf("dev.architectury:architectury-forge:9.2.14")
@@ -165,10 +163,12 @@ tasks.named('processResources', ProcessResources).configure {
                              mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
                              mod_authors         : mod_authors, mod_description: mod_description,]
 
+    var allProperties = project.properties.findAll { it.value instanceof String }
+
     inputs.properties replaceProperties
 
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
-        expand replaceProperties + [project: project]
+        expand allProperties + [project: project]
     }
 }
 

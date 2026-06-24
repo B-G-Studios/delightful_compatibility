@@ -2,13 +2,10 @@
   "required": true,
   "minVersion": "0.8",
   "package": "xyz.jamesbcyber.delightful_compatibility.mixin",
-  "compatibilityLevel": "JAVA_8",
-  "refmap": "Delightful_compatibility.refmap.json",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "delightful_compatibility.mixin.refmap.json",
   "mixins": [
   ],
   "client": [
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  }
+  ]
 }
