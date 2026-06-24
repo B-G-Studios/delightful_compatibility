@@ -17,9 +17,8 @@ public class DCCommands {
     public static void onRegisterCommands(RegisterCommandsEvent event) {
         CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
         LiteralArgumentBuilder<CommandSourceStack> baseCommand = Commands.literal("delightful");
-        if (ModList.get().isLoaded("ers")) {
-            ErsCommands.register(baseCommand);
-        }
+
+        TameCommand.registerSubCommands(baseCommand);
 
         dispatcher.register(baseCommand);
     }

@@ -30,3 +30,69 @@ side = "BOTH"
 #versionRange = "${template_version}"
 #ordering = "AFTER"
 #side = "BOTH"
+
+
+# Lets Do
+[[dependencies."${mod_id}"]]
+modId = "${lets_do_farmcharm}"
+mandatory = false
+versionRange = "${lets_do_farmcharm_version}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "${lets_do_bakery}"
+mandatory = false
+versionRange = "${lets_do_bakery_version}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "${lets_do_brewery}"
+mandatory = false
+versionRange = "${lets_do_brewery_version}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "${lets_do_candlelight}"
+mandatory = false
+versionRange = "${lets_do_candlelight_version}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "${lets_do_vinery}"
+mandatory = false
+versionRange = "${lets_do_vinery_version}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "${lets_do_herbalbrews}"
+mandatory = false
+versionRange = "${lets_do_herbalbrews_version}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "${lets_do_meadow}"
+mandatory = false
+versionRange = "${lets_do_meadow_version}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "${lets_do_wildernature}"
+mandatory = false
+versionRange = "${lets_do_wildernature_version}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "${lets_do_beachparty}"
+mandatory = false
+versionRange = "${lets_do_beachparty_version}"
+ordering = "AFTER"
+side = "BOTH"
+
