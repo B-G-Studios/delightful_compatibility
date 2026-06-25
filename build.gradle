@@ -134,45 +134,49 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
+//    implementation fg.deobf("maven.modrinth:retromod:1.2.0-snapshot.3-forge,1.20.1")
+
     // local files
     implementation fg.deobf("block:ror:0.71")
 
+    // Mob
     implementation fg.deobf("maven.modrinth:dtn-palette-of-paws:1.3.0")
     implementation fg.deobf("maven.modrinth:ecological-replenishment-station:1.2.0")
 
     // library mods and deps
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${minecraft_version}:${geckolib_version}")
     implementation("com.eliotlash.mclib:mclib:20")
-    implementation fg.deobf("dev.architectury:architectury-forge:9.2.14")
-    implementation fg.deobf("maven.modrinth:curios:5.14.1+1.20.1-forge")
+
+    implementation fg.deobf("dev.architectury:architectury-forge:${architecture_version}")
+    implementation fg.deobf("maven.modrinth:curios:${curios_version}-forge")
 
     // Create Mods
     implementation fg.deobf("com.simibubi.create:create-1.20.1:6.0.8-291:all")
 
     // Farmers Delight Mods
-    implementation fg.deobf("maven.modrinth:farmers-delight:1.20.1-1.3.2")
-    implementation fg.deobf("maven.modrinth:brewin-and-chewin:1.20.1-3.2.1")
+    implementation fg.deobf("maven.modrinth:farmers-delight:${farmersdelight_version}")
+    implementation fg.deobf("maven.modrinth:brewin-and-chewin:${brewinandchewin_version}")
 
     // Let's Do Mods
     implementation fg.deobf("maven.modrinth:do-api:1.2.15-forge,1.20.1")
-    implementation fg.deobf("maven.modrinth:lets-do-farm-charm:1.0.14-forge,1.20.1")
-    implementation fg.deobf("maven.modrinth:lets-do-bakery-farmcharm-compat:2.0.6-forge,1.20.1")
-    implementation fg.deobf("maven.modrinth:lets-do-brewery-farmcharm-compat:2.0.6-forge,1.20.1")
-    implementation fg.deobf("maven.modrinth:lets-do-candlelight-farmcharm-compat:2.0.5-forge,1.20.1")
-    implementation fg.deobf("maven.modrinth:lets-do-vinery:1.4.41-forge,1.20.1")
-    implementation fg.deobf("maven.modrinth:lets-do-herbalbrews:1.0.12-forge,1.20.1")
-    implementation fg.deobf("maven.modrinth:lets-do-meadow:1.3.25-forge,1.20.1")
-    implementation fg.deobf("maven.modrinth:lets-do-wildernature:1.0.6-forge,1.20.1")
-    implementation fg.deobf("maven.modrinth:lets-do-beachparty:2.0.3-forge,1.20.1")
+    implementation fg.deobf("maven.modrinth:lets-do-farm-charm:${lets_do_farmcharm_version}-forge,1.20.1")
+    implementation fg.deobf("maven.modrinth:lets-do-bakery-farmcharm-compat:${lets_do_bakery_version}-forge,1.20.1")
+    implementation fg.deobf("maven.modrinth:lets-do-brewery-farmcharm-compat:${lets_do_brewery_version}-forge,1.20.1")
+    implementation fg.deobf("maven.modrinth:lets-do-candlelight-farmcharm-compat:${lets_do_candlelight_version}-forge,1.20.1")
+    implementation fg.deobf("maven.modrinth:lets-do-vinery:${lets_do_vinery_version}-forge,1.20.1")
+    implementation fg.deobf("maven.modrinth:lets-do-herbalbrews:${lets_do_herbalbrews_version}-forge,1.20.1")
+    implementation fg.deobf("maven.modrinth:lets-do-meadow:${lets_do_meadow_version}-forge,1.20.1")
+    implementation fg.deobf("maven.modrinth:lets-do-wildernature:${lets_do_wildernature_version}-forge,1.20.1")
+    implementation fg.deobf("maven.modrinth:lets-do-beachparty:${lets_do_beachparty_version}-forge,1.20.1")
 
 }
 
 tasks.named('processResources', ProcessResources).configure {
-    var replaceProperties = [minecraft_version   : minecraft_version, minecraft_version_range: minecraft_version_range,
-                             forge_version       : forge_version, forge_version_range: forge_version_range,
-                             loader_version_range: loader_version_range,
-                             mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-                             mod_authors         : mod_authors, mod_description: mod_description,]
+//    var replaceProperties = [minecraft_version   : minecraft_version, minecraft_version_range: minecraft_version_range,
+//                             forge_version       : forge_version, forge_version_range: forge_version_range,
+//                             loader_version_range: loader_version_range,
+//                             mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+//                             mod_authors         : mod_authors, mod_description: mod_description,]
 
     var allProperties = project.properties.findAll { it.value instanceof String }
 
